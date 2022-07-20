@@ -1,3 +1,12 @@
+Sometimes you just want to get straight to the commands you need to use with a particular tool, without having to trawl through all the documentation.
+In this post, I’ll highlight the commonly used commands for my day-to-day work so you can get straight into the action without the pain!
+
+
+
+
+ #####  Useful links for advance readings: ########
+==============================
+
 VMware Horizon : https://www.carlstalhood.com/vmware-horizon-7-virtual-desktop-pools/
 
 https://kubernetes.io/docs/tasks/tools/install-minikube/
@@ -8,34 +17,31 @@ https://github.com/AdityaSP/ora-aug6-dock
 
 
 =====================........=================================
->> Import-Module ActiveDirectory 
->>get-adforest  / get-addomain
+>> Import-Module ActiveDirectory    ## To import AD modules to powershell
+>>get-adforest  / get-addomain      ## List the domain servers
 
->>netstat -an|find "80"
->>netstat -an|find /i "listening"
+>>netstat -an|find "80"             ## Find the specific port from cmd command
+>>netstat -an|find /i "listening"   ## Filter based on port state
 >>netstat -anob
->>show mac address-table address *mac-address*
->>net use Z: "\\boeing"
->>sh ip arp 10.246.10.11
+>>show mac address-table address *mac-address*   ##  To find IP address from L2/L3 Switch terminal
+>>net use Z: "\\boeing"            ## mount the NFS share on Linux based OS
+>>sh ip arp 10.246.10.11           ## use ARP protocol to find the neighbour IP address and its mac address.
 
 
-openssl s_client -connect www.lawsociety.com.au:443
+openssl s_client -connect www.lawsociety.com.au:443   ## To check the port status from Linux based OS.
 
-23hmll02
-
-rasberry pi
 
 
 ---------------AD Replication----------
 
->>repadmin /showrepl /csv
+>>repadmin /showrepl /csv      // To check AD replication status and troubleshooting.
 >>netdom query fsmo   //to show fsmo role
 >>
 >>DCDIAG /TEST:DNS /v /s:<DCNAME> /f:<filename.log>
 >>dnscmd /config /enableednsprobes 0 
 
 >>netwok trace
->> check sry record:
+>> check sry record:       #### Check SRV record from PC after configure the SRV record on DNS server.
 nslookup 
 set type=SRV 
 _autodiscover._tcp.SMTPDomain.com 
