@@ -1,0 +1,260 @@
+VMware Horizon : https://www.carlstalhood.com/vmware-horizon-7-virtual-desktop-pools/
+
+https://kubernetes.io/docs/tasks/tools/install-minikube/
+
+https://regex101.com/
+
+https://github.com/AdityaSP/ora-aug6-dock
+
+
+=====================........=================================
+>> Import-Module ActiveDirectory 
+>>get-adforest  / get-addomain
+
+>>netstat -an|find "80"
+>>netstat -an|find /i "listening"
+>>netstat -anob
+>>show mac address-table address *mac-address*
+>>net use Z: "\\boeing"
+>>sh ip arp 10.246.10.11
+
+
+openssl s_client -connect www.lawsociety.com.au:443
+
+23hmll02
+
+rasberry pi
+
+
+---------------AD Replication----------
+
+>>repadmin /showrepl /csv
+>>netdom query fsmo   //to show fsmo role
+>>
+>>DCDIAG /TEST:DNS /v /s:<DCNAME> /f:<filename.log>
+>>dnscmd /config /enableednsprobes 0 
+
+>>netwok trace
+>> check sry record:
+nslookup 
+set type=SRV 
+_autodiscover._tcp.SMTPDomain.com 
+
+>>sh asp table socket >>>>checking the listening port on cisco device.
+
+
+
+
+Linux:::::::::::::::::::::::::
+
+free -m >>>free memory
+useradd admin
+cat /etc/sysconfig/passwd
+usermod -aG wheel admin
+
+>> mkdir -p /repos/CentOS/6/5/Packages
+
+>>createrepo /repos/CentOS/6/5
+>>createrepo --update /repos/CentOS/6/5
+>>cp -arv /media/CentOS/Packages/* /repos/CentOS/6/5/
+>>cd /etc/yum.repos.d  ###edit this file in client machine to access YUM repository on another configured machine
+
+>>rpm -ql <installed packge name"
+
+>>yum list installed   ......to see installed list
+>>yum provides '*bin/nslookup'
+>>netstat -tulp
+>>du -hsm   /// list folder wise size
+>> tar xzf *.tar.gz
+>>chkconfig docker on
+>>showmount -e 10.246.40.40 ///show mount points
+>>iotop --only  //checking disk performance
+export PATH=~/.local/bin:$PATH   &&& source ~/.bash_profile
+>>cat > /etc/issue << EOF
+-----------------
+EOF
+
+>>ps -eo pid,ppid,cmd,%mem,%cpu --sort=-%mem | head
+df -h|grep -v '^Filesystem'|awk '{print $1}'
+
+>>TOP >>> Shift+P>>CPU,Shift+M>>memory,Shift+O >>, Shift+W >>write configuration.,Shift+A >>splitup process.
+
+>> :%s/needs_root/needs_root()/gc
+
+>>sed 's/<replaced>/(replace)/g' test.txt
+
+..........VMware finding lock file ....
+>> vmfsfilelockinfo -p /vmfs/volumes/vdi1-dns06/v10vn07125/v10vn07125-flat.vmdk -v wec-vdivcenter -u homeoffice\kmc00bg
+ vmkfstools -D path
+ esxcfg-nics -l | grep -i "xx:xx:xx:xx :xx:xx"
+
+>>Remove and generate systemid And UUID:
+
+rm -f /etc/machine-id  && rm -f /var/lib/dbus/machine-id 
+uuidgen ens10
+systemd-machine-id-setup
+>>>> Performance check
+
+Check process : top, free,lsmem,/proc/meminfo ,vmstat,pmap,dmidecode,lscpu
+
+Check Disk : iostat -y 5 ; lsof
+
+Network: tcpdump -I ens01; lost -I -P -n|grep -I listen ; netstat -plnt or ss -plnt, iftop
+
+Other tools : htop,iotop,iptraf,psacct
+
+
+
+>>--------------Package installation(IPERF----used to test networkperformance b/w server---------
+//www.slashroot.in/iperf-how-test-network-speedperformancebandwidth 
+#tar -xvf iperf-2.0.5.tar.gz
+[root@slashroot2 ~]# cd iperf-2.0.5
+[root@slashroot2 iperf-2.0.5]# ./configure
+[root@slashroot2 iperf-2.0.5]# make
+[root@slashroot2 iperf-2.0.5]# make install
+======SMTP Check ===========
+# openssl s_client -connect 130.76.20.188:25 -starttls smtp
+
+
+
+
+
+
+
+==============VMware--------------
+
+
+>>services.sh restart ñ restart all ESXi services.
+
+>> /etc/init.d/vpxa restart ñ restart vCenter Agent on host
+
+
+>>cat /etc/chkconfig.db ñ view current running status of all ESXi services.
+
+>>nc ñz 10.10.10.10 3260 ñ test connectivity to 10.10.10.10 on port 3260
+
+>>esxcli hardware cpu list ñ retrieve CPU information (family, model and cache)
+
+>> esxcli hardware memory get ñ retrieve information about memory (available and non-uniform memory access).
+
+>> esxcli iscsi ñ The iscsi namespace can be used to monitor and manage both hardware and software iSCSI setups.
+
+>>esxtop c >>cpu process information
+>>/etc/init.d/hostd restart
+ >>netstat -tanp | grep LISTEN
+
+>>esxcli network connection list   //list the listening port
+
+>>chkconfig --list   //list the service.
+
+
+Editing Firewall=======
+
+>>chmod 644 /etc/service.xml   ///changing write permission
+>>chmod +t /etc/service.xml
+
+>>chmod 444 /etc/service.xml //back to readonly mode
+>>esxcli network firewall refresh //restart firewall
+
+
+==================ASA  ASDM Configuration===================
+
+
+===============.........==========
+
+asdm image disk0:/asdm645.bin
+
+
+http server enable
+
+http 10.0.0.0 255.0.0.0 inside 
+
+
+================.........===Upgrading ASA Firewall======
+>>configure terminal
+>>show running-config boot system 
+#result :boot system disk0:/cdisk.bin
+>>no boot system disk0:/cdisk.bin
+>>boot system disk0://asa913-smp-k8.bin
+>>asdm image disk0:/asdm-711.bin
+
+----Log
+>>sh logging asdm |include
+
+>>fsck disk0:   ///checking disk issue on asa firewall
+
+==============CISCO Network ===========
+>>show logging  ::it shows console login and save it in RAM(clear after switchoff )
+>>logging buffered 163384 ::to increse the log buffer size. 
+>> logging host 10.246.40.22  : to store syslog file on remote host machine.
+>>terminal monitor : to enble debug console of SSh & telnet
+>>debug all : enable all debug.
+
+
+=========Network Monitoring====
+
+==Sender=================
+
+NTttcp.exe -s -m 4,*,10.245.35.215 -a 2 -t 30
+
+=Receiver===================
+
+NTttcp.exe -r -m 4,*,10.246.35.56 -a 2 -t 30
+
+
+===================.........=============================
+
+How to disable WSUS locally by registery settings ?
+A) HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU
+
+00000002 - notify both download and install.
+
+=================...SQUID PRoxy ..........
+>>acl blockregexurl url_regex -i bar
+  http_access deny blockregexurl
+
+>>service squid status
+
+>>service --status-all
+
+>>tail -n 50 
+
+>>>route -n 
+
+>>cat /var/log/message
+>>ifdown eth1
+>>ping google.com -I eth1
+>>fuser -m /mnt/vmare >>>>see who connected to mount
+>>mount -t nfs boeing:/vol/vol1/vmdk   >>>>>mount nfs share
+>> e2fsck -f /dev/link  // to check filesystem.do this before lvm operations
+>> saw  // to check cpu utilisation.
+
+>>>>>Booting Issue=====
+Booting from CD , Type ìboot rescueî at Linux boot prompt.
+>>chroot /mnt/sysimage   ;   #fdisk -l /dev/sda  //check how many partion you have ;fsck -y /dev/sda2';
+If the above also not helped then reinstall grub and retry.
+chroot /mnt/sysimage  ;/sbin/grub-install /dev/hda
+If a system has issues with the GRUB configuration
+
+
+=================================...........=========================
+
+>>ip tcp adjust-mss
+
+>>ip tcp adjust-mss = DATA + L7H + L6H + L5H
+
+ip mtu  = DATA + L7H + L6H + L5H + L4H + L3H
+==========================================BAT File..........
+
+@echo off
+powershell.exe -command "& '%~dpn0.ps1'"
+pause
+
+@echo off
+
+echo [Install_VCRedist_2019.bat]: Start install
+start "Microsoft Visual C++ Redist 2019" /wait "%~dp0\vcredist_x64.exe" /install /quiet /norestart /log "C:\TEMP\MsVCRedist2019_Install.log"
+echo [Install_VCRedist_2019.bat]: VC Redist Installation Exit Code %errorLevel%
+exit /B %errorLevel%
+
+
