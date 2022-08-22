@@ -1,3 +1,3 @@
 # Python-Script
 
-Currenlty documenting the  python & powershell Script by adding as much as comment to understand the logic. Also i have posted some of the cheat sheets that have used my day to day work which helps to keep it handy instead of spending time on seracing online.
+At the moment I am documenting the Python and PowerShell scripts with as much comment as possible to make the logic clear. I've also posted some cheat sheets which are useful to keep handy instead of spending time searching online.
